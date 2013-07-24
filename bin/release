@@ -16,16 +16,11 @@
 # limitations under the License.
 
 $stdout.sync = true
+$stderr.sync = true
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 
 require 'java_buildpack/buildpack'
 
 build_dir = ARGV[0]
 
-begin
-  puts JavaBuildpack::Buildpack.new(build_dir).release
-rescue => e
-  puts "Release failed with exception #{e.inspect}, #{e.backtrace}\n"
-  abort e.message
-end
-
+puts JavaBuildpack::Buildpack.do_with_buildpack(build_dir, 'Release failed with exception %s') { |buildpack| buildpack.release }
