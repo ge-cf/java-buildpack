@@ -21,6 +21,8 @@ containers:
   - "JavaBuildpack::Container::SpringBootCli"
   - "JavaBuildpack::Container::Tomcat"
   - "JavaBuildpack::Container::Play"
+  - "JavaBuildpack::Container::Karaf"
+  - "JavaBuildpack::Container::Tarball"
 jres:
   - "JavaBuildpack::Jre::OpenJdk"
 frameworks:
